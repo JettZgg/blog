@@ -24,8 +24,9 @@ function renderMathJax() {
 
 // Function to detect if the device is a mobile device
 function isMobileDevice() {
-    const ua = navigator.userAgent;
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua);
+    const ua = navigator.userAgent.toLowerCase();
+    return /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/.test(ua) || 
+           (navigator.maxTouchPoints > 1 && /mobile|tablet/.test(ua));
 }
 
 // Function to parse the metadata from the markdown content
