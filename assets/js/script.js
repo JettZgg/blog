@@ -9,10 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.MathJax) {
         MathJax.typesetPromise();
     }
-
-    if (window.userAgent.indexOf("mobile") =! -1) {
-        document.body.classList.add('mobile-device');
-    }
 });
 
 // Ensure MathJax processes any LaTeX in the loaded content after Marked.js parsing
@@ -99,5 +95,3 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error fetching articles list:', error);
         });
 });
-
-

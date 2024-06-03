@@ -62,16 +62,10 @@ nav ul li a:hover {
     }
 }
 
-/* Set image width to 60% for larger screens and 90% for smaller screens */
 .markdown-body img {
     display: block;
-    margin: 20px auto;
-    max-width: 80% !important; /* For larger screens */
-}
-
-.mobile-device .markdown-body img {
-    max-width: 100% !important;
-    margin: 8px auto !important;
+    margin: 10px auto;
+    max-width: 90% !important;
 }
 
 /* Article links */
