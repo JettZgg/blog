@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const articleData = articles.find(a => a.file.replace('.md', '') === article);
 
                 if (articleData) {
-                    fetch(`articles/${articleData.file}`)
+                    fetch(`https://raw.githubusercontent.com/JettZgg/blog/master/articles/${articleData.file}`)
                         .then(response => {
                             if (!response.ok) {
                                 throw new Error('Network response was not ok');
