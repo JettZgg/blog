@@ -70,6 +70,7 @@ nav ul li a:hover {
 }
 
 .mobile-device .markdown-body img {
+    max-width: 100% !important;
     margin: 8px auto !important;
 }
 
