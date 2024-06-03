@@ -1,3 +1,33 @@
+window.MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    }
+};
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.MathJax) {
+        MathJax.typesetPromise();
+    }
+
+    if (isMobileDevice()) {
+        document.body.classList.add('mobile-device');
+    }
+});
+
+// Ensure MathJax processes any LaTeX in the loaded content after Marked.js parsing
+function renderMathJax() {
+    if (window.MathJax) {
+        MathJax.typesetPromise();
+    }
+}
+
+// Function to detect if the device is a mobile device
+function isMobileDevice() {
+    const ua = navigator.userAgent;
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua);
+}
+
 // Function to parse the metadata from the markdown content
 function parseMetadata(content) {
     const metadata = {};
@@ -76,9 +106,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 });
 
-// Ensure MathJax processes any LaTeX in the loaded content
-function renderMathJax() {
-    if (window.MathJax) {
-        MathJax.typesetPromise();
-    }
-}
+

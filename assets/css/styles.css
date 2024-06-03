@@ -69,11 +69,9 @@ nav ul li a:hover {
     max-width: 60%; /* For larger screens */
 }
 
-@media (max-width: 600px), (pointer: coarse) and (hover: none) {
-    .markdown-body img {
-        max-width: 90%; /* For smaller screens and touch devices */
-        margin: 8px auto;
-    }
+.mobile-device .markdown-body img {
+    max-width: 90%; /* For smaller screens and touch devices */
+    margin: 8px auto;
 }
 
 /* Article links */

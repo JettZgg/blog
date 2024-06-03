@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Article</title>
+    <title>Article Template</title>
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css">
     <link rel="stylesheet" href="assets/css/prism.css">
@@ -30,26 +30,6 @@
     <script src="assets/js/marked.min.js"></script>
     <script src="assets/js/prism.js"></script>
     <script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']]
-            }
-        };
-        document.addEventListener('DOMContentLoaded', function() {
-            if (window.MathJax) {
-                MathJax.typesetPromise();
-            }
-        });
-
-        // Ensure MathJax processes any LaTeX in the loaded content after Marked.js parsing
-        function renderMathJax() {
-            if (window.MathJax) {
-                MathJax.typesetPromise();
-            }
-        }
-    </script>
     <script src="assets/js/script.js"></script>
 </body>
 </html>
