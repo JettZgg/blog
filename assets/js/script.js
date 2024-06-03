@@ -7,9 +7,18 @@ window.MathJax = {
 
 // Function to detect if the device is a mobile device
 function isMobileDevice() {
-    const ua = navigator.userAgent.toLowerCase();
-    return /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/.test(ua) || 
-           (navigator.maxTouchPoints > 1 && /mobile|tablet/.test(ua));
+    const toMatch = [
+        /Android/i,
+        /webOS/i,
+        /iPhone/i,
+        /iPad/i,
+        /iPod/i,
+        /BlackBerry/i,
+        /Windows Phone/i
+    ];
+    return toMatch.some((toMatchItem) => {
+        return navigator.userAgent.match(toMatchItem);
+    });
 }
 
 document.addEventListener('DOMContentLoaded', function() {
