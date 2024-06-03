@@ -66,12 +66,11 @@ nav ul li a:hover {
 .markdown-body img {
     display: block;
     margin: 20px auto;
-    max-width: 60%; /* For larger screens */
+    max-width: 60% !important; /* For larger screens */
 }
 
 .mobile-device .markdown-body img {
-    max-width: 90%; /* For smaller screens and touch devices */
-    margin: 8px auto;
+    margin: 8px auto !important;
 }
 
 /* Article links */
