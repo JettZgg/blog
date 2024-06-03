@@ -5,6 +5,13 @@ window.MathJax = {
     }
 };
 
+// Function to detect if the device is a mobile device
+function isMobileDevice() {
+    const ua = navigator.userAgent.toLowerCase();
+    return /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/.test(ua) || 
+           (navigator.maxTouchPoints > 1 && /mobile|tablet/.test(ua));
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     if (window.MathJax) {
         MathJax.typesetPromise();
@@ -20,13 +27,6 @@ function renderMathJax() {
     if (window.MathJax) {
         MathJax.typesetPromise();
     }
-}
-
-// Function to detect if the device is a mobile device
-function isMobileDevice() {
-    const ua = navigator.userAgent.toLowerCase();
-    return /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/.test(ua) || 
-           (navigator.maxTouchPoints > 1 && /mobile|tablet/.test(ua));
 }
 
 // Function to parse the metadata from the markdown content
