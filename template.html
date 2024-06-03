@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Template</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css">
+    <link rel="stylesheet" href="assets/css/prism.css">
+</head>
+<body>
+    <header>
+        <h1>Jett's Website</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+        </ul>
+    </nav>
+    <main class="markdown-body">
+        <article id="content">
+            <!-- Markdown content will be loaded here -->
+        </article>
+    </main>
+    <footer>
+        <br>
+        <p>&copy; 2024 Jett's Website</p>
+    </footer>
+    <script src="assets/js/marked.min.js"></script>
+    <script src="assets/js/prism.js"></script>
+    <script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+        });
+
+        // Ensure MathJax processes any LaTeX in the loaded content after Marked.js parsing
+        function renderMathJax() {
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+        }
+    </script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

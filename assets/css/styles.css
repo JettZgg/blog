@@ -1,0 +1,112 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+}
+
+header, nav, footer {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+main {
+    margin: 0 auto;
+    width: 50%;
+    text-align: left;
+}
+
+pre {
+    white-space: pre-wrap; /* Enable line wrapping in code blocks */
+}
+
+/* Navigation menu */
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1em; /* Ensure the font size is consistent */
+    font-weight: normal; /* Ensure the font weight is normal */
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+    main {
+        width: calc(100% - 10px); /* Full width minus 5px margin on each side */
+        margin: 5px;
+    }
+
+    nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+
+/* Set image width to 60% for larger screens and 90% for smaller screens */
+.markdown-body img {
+    display: block;
+    margin: 20px auto;
+    max-width: 80% !important; /* For larger screens */
+}
+
+@media (max-width: 600px) {
+    .markdown-body img {
+        margin: 8px auto;
+    }
+}
+
+/* Article links */
+#article-list-container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#article-list {
+    text-align: left;
+    width: 100%;
+}
+
+#article-list div {
+    text-align: left;
+    margin: 0 auto;
+    display: inline-block;
+    width: 100%;
+}
+
+#article-list a {
+    text-decoration: underline;
+    color: black;
+    font-size: 0.65em;
+    display: block;
+    margin: 4px 0;
+    font-weight: normal; /* Set font weight to normal */
+}
+
+#article-list a:hover {
+    color: black;
+}
+
+/* Markdown content should keep its original format */
+#content {
+    text-align: left;
+}
