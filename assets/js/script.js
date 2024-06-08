@@ -18,6 +18,11 @@ function renderMathJax() {
     }
 }
 
+// Set article tile
+function setArticleTitle(title) {
+    document.title = title;
+}
+
 // Function to parse the metadata from the markdown content
 function parseMetadata(content) {
     const metadata = {};
@@ -108,6 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             contentElement.innerHTML = marked.parse(metadata.content); // Use metadata.content instead of raw text
                             Prism.highlightAll(); // Apply Prism.js highlighting
                             renderMathJax(); // Ensure MathJax processes the content
+                            setArticleTitle(articleData.title);
                         })
                         .catch(error => {
                             contentElement.innerHTML = '<p>Failed to load article. Please try again later.</p>';
