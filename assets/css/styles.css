@@ -113,8 +113,8 @@ nav ul li a:hover {
 
 .article-date {
     margin-right: 10px;
-    font-size: 1em; /* Make the font size the same as the title */
-    font-weight: bold; /* Optional: make the date bold */
+    font-size: 1.3em;
+    font-weight: bold;
 }
 
 .article-title {

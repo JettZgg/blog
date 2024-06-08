@@ -77,13 +77,15 @@ document.addEventListener('DOMContentLoaded', function() {
             if (articleListElement) {
                 // Display grouped article titles on the home page
                 for (const date in groupedArticles) {
-                    const dateItem = document.createElement('h2');
-                    dateItem.textContent = date;
-                    articleListElement.appendChild(dateItem);
+                    const dateElement = document.createElement('h2');
+                    dateElement.className = 'article-date';
+                    dateElement.textContent = date;
+                    articleListElement.appendChild(dateElement);
 
                     groupedArticles[date].forEach(article => {
                         const articleItem = document.createElement('div');
-                        articleItem.innerHTML = `<a class="article-title" href="template.html?article=${article.file.replace('.md', '')}">${article.title}</a>`;
+                        articleItem.className = 'article-entry';
+                        articleItem.innerHTML = `<span class="article-title"><a href="template.html?article=${article.file.replace('.md', '')}">${article.title}</a></span>`;
                         articleListElement.appendChild(articleItem);
                     });
                 }

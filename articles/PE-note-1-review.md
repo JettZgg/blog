@@ -1,6 +1,6 @@
 ---
 title: Queueing Theory - Review
-date: "2024-02-23T15:58:08"
+date: "2024-06-03T11:36:19"
 ---
 ## Two basic types
 1. **Delay**: If $\rho < 1$, no delay, no loss, arrive rate = throughput
