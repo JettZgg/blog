@@ -89,7 +89,7 @@ nav ul li a:hover {
 #article-list a {
     text-decoration: underline;
     color: black;
-    font-size: 0.65em;
+    font-size: 1em;
     display: block;
     margin: 4px 0;
     font-weight: normal; /* Set font weight to normal */
@@ -102,4 +102,28 @@ nav ul li a:hover {
 /* Markdown content should keep its original format */
 #content {
     text-align: left;
+}
+
+/* Add styles for article entries */
+.article-entry {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.article-date {
+    margin-right: 10px;
+    font-size: 1em; /* Make the font size the same as the title */
+    font-weight: bold; /* Optional: make the date bold */
+}
+
+.article-title {
+    font-size: 1em; /* Ensure the font size is consistent */
+    font-weight: normal; /* Ensure the font weight is normal */
+    text-decoration: underline;
+    color: black;
+}
+
+.article-title:hover {
+    color: black;
 }

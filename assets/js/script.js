@@ -38,6 +38,20 @@ function parseMetadata(content) {
     return metadata;
 }
 
+// Function to group articles by date
+function groupArticlesByDate(articles) {
+    const groupedArticles = {};
+    articles.forEach(article => {
+        const date = new Date(article.date);
+        const formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+        if (!groupedArticles[formattedDate]) {
+            groupedArticles[formattedDate] = [];
+        }
+        groupedArticles[formattedDate].push(article);
+    });
+    return groupedArticles;
+}
+
 // Load and parse Markdown file
 document.addEventListener('DOMContentLoaded', function() {
     const contentElement = document.getElementById('content');
@@ -57,15 +71,22 @@ document.addEventListener('DOMContentLoaded', function() {
             // Sort articles by date in descending order
             articles.sort((a, b) => new Date(b.date) - new Date(a.date));
 
+            // Group articles by date
+            const groupedArticles = groupArticlesByDate(articles);
+
             if (articleListElement) {
-                // Display article titles on the home page
-                articles.forEach(article => {
-                    const articleItem = document.createElement('div');
-                    const date = new Date(article.date);
-                    const formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
-                    articleItem.innerHTML = `<h2>${formattedDate} <a href="template.html?article=${article.file.replace('.md', '')}">${article.title}</a></h2>`;
-                    articleListElement.appendChild(articleItem);
-                });
+                // Display grouped article titles on the home page
+                for (const date in groupedArticles) {
+                    const dateItem = document.createElement('h2');
+                    dateItem.textContent = date;
+                    articleListElement.appendChild(dateItem);
+
+                    groupedArticles[date].forEach(article => {
+                        const articleItem = document.createElement('div');
+                        articleItem.innerHTML = `<a class="article-title" href="template.html?article=${article.file.replace('.md', '')}">${article.title}</a>`;
+                        articleListElement.appendChild(articleItem);
+                    });
+                }
             }
 
             if (contentElement && article) {
