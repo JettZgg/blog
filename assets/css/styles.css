@@ -68,6 +68,12 @@ nav ul li a:hover {
     max-width: 90% !important;
 }
 
+.markdown-body figcaption {
+    margin-top: 5px !important;
+    font-style: italic !important;
+    color: gray;
+}
+
 /* Article links */
 #article-list-container {
     width: 80%;
