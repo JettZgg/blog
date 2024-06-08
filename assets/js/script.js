@@ -61,7 +61,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Display article titles on the home page
                 articles.forEach(article => {
                     const articleItem = document.createElement('div');
-                    articleItem.innerHTML = `<h2><a href="template.html?article=${article.file.replace('.md', '')}">${article.title}</a></h2>`;
+                    const date = new Date(article.date);
+                    const formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+                    articleItem.innerHTML = `<h2>${formattedDate} <a href="template.html?article=${article.file.replace('.md', '')}">${article.title}</a></h2>`;
                     articleListElement.appendChild(articleItem);
                 });
             }
