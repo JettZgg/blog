@@ -6,19 +6,19 @@ date: "2024-01-27T22:25:07"
 ## 3 Normal Forms
 1. A primary key is required for every table
 <figure align="center">
-  <img src="assets/images/image-0.png" alt="Alt text" width="100%">
+  <img src="assets/images/SQL-note-0/image-1.png" alt="Alt text" width="100%">
   <figcaption>1NF</figcaption>
 </figure>
 
 2. non-key attributes are dependent on whole key
 <figure align="center">
-  <img src="assets/images/image-1.png" alt="Alt text" width="100%">
+  <img src="assets/images/SQL-note-0/image-2.png" alt="Alt text" width="100%">
   <figcaption>2NF</figcaption>
 </figure>
 
 3. non-key attributes are denpedent on nothing but the whole key
 <figure align="center">
-  <img src="assets/images/image-2.png" alt="Alt text" width="100%">
+  <img src="assets/images/SQL-note-0/image-3.png" alt="Alt text" width="100%">
   <figcaption>3NF</figcaption>
 </figure>
 
@@ -83,37 +83,37 @@ In this table, `EmployeeNumber` is the surrogate key
 
 ### Cartesian Join
 <figure align="center">
-  <img src="assets/images/image-3.png" alt="Alt text" width="100%">
+  <img src="assets/images/SQL-note-0/image-4.png" alt="Alt text" width="100%">
   <figcaption>Cartesian Join</figcaption>
 </figure>
 
 ### Self Join
 <figure align="center">
-  <img src="assets/images/image-4.png" alt="Alt text" width="100%">
+  <img src="assets/images/SQL-note-0/image-5.png" alt="Alt text" width="100%">
   <figcaption>Self Join</figcaption>
 </figure>
 
 ### Inner Join
 <figure align="center">
-  <img src="assets/images/image-5.png" alt="Alt text" width="100%">
+  <img src="assets/images/SQL-note-0/image-6.png" alt="Alt text" width="100%">
   <figcaption>Inner Join</figcaption>
 </figure>
 
 ### Left Join
 <figure align="center">
-  <img src="assets/images/image-6.png" alt="Alt text" width="100%">
+  <img src="assets/images/SQL-note-0/image-7.png" alt="Alt text" width="100%">
   <figcaption>Left Join, keep the left table</figcaption>
 </figure>
 
 ### Right Join
 <figure align="center">
-  <img src="assets/images/image-7.png" alt="Alt text" width="100%">
+  <img src="assets/images/SQL-note-0/image-8.png" alt="Alt text" width="100%">
   <figcaption>Right Join, keep the right table</figcaption>
 </figure>
 
 ### Full Outer Join
 <figure align="center">
-  <img src="assets/images/image-8.png" alt="Alt text" width="100%">
+  <img src="assets/images/SQL-note-0/image-9.png" alt="Alt text" width="100%">
   <figcaption>Full Outer Join, keep both table</figcaption>
 </figure>
 
@@ -142,14 +142,14 @@ SELECT * FROM customers WHERE name LIKE 'J_n%';
 
 ### Combining SELECT and INSERT statements
 <figure align="center">
-  <img src="assets/images/image-9.png" alt="Alt text" width="100%">
+  <img src="assets/images/SQL-note-0/image-10.png" alt="Alt text" width="100%">
 </figure>
 
 Also, it's important to mention that this syntax is specific to SQL Server. In other SQL database systems, such as MySQL or PostgreSQL, the approach to insert data into an already existing table would be different, often using `INSERT INTO ... SELECT ...` syntax.
 
 ## ORDER BY
 <figure align="center">
-  <img src="assets/images/image-10.png" alt="Alt text" width="100%">
+  <img src="assets/images/SQL-note-0/image-11png" alt="Alt text" width="100%">
 </figure>
 
 ## Aggregate functions
@@ -161,16 +161,16 @@ Also, it's important to mention that this syntax is specific to SQL Server. In o
 - COUNT(*): return num (NULL included) rows
  
 <figure align="center">
-  <img src="assets/images/image-11.png" alt="Alt text" width="100%">
+  <img src="assets/images/SQL-note-0/image-12.png" alt="Alt text" width="100%">
   <figcaption>Some examples using aggregate functions</figcaption>
 </figure>
 
 <figure align="center">
-  <img src="assets/images/image-12.png" alt="Alt text" width="100%">
+  <img src="assets/images/SQL-note-0/image-13.png" alt="Alt text" width="100%">
   <figcaption>Example 2</figcaption>
 </figure>
 
 <figure align="center">
-  <img src="assets/images/image-13.png" alt="Alt text" width="100%">
+  <img src="assets/images/SQL-note-0/image-14.png" alt="Alt text" width="100%">
   <figcaption>Example 3 based on the Employees table</figcaption>
 </figure>

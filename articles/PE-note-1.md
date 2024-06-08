@@ -5,7 +5,7 @@ date: "2024-01-28T21:59:19"
 
 ## System Flow
 <figure align="center">
-  <img src="assets/images/image-15.png" alt="Alt text" width="100%">
+  <img src="assets/images/PE-note-1/image-1.png" alt="Alt text" width="100%">
   <figcaption>System Flow</figcaption>
 </figure>
 
@@ -28,14 +28,14 @@ Average input rate = Average output rate
 - State n means that there are n customers in the system
 - If $\lambda$  is the arrival rate then the probability of getting 1 arrival in a very short time interval $d$ is $\lambda$ $d$. Also if the departure rate is $\mu$  then the probability of getting 1 departure in a very short time interval $d$ is $\mu$ $d$.
 <figure align="center">
-  <img src="assets/images/image-16.png" alt="Alt text" width="100%">
+  <img src="assets/images/PE-note-1/image-2.png" alt="Alt text" width="100%">
   <figcaption>State Flow</figcaption>
 </figure>
 
 ## Probability of a finite Queueing System
 - The long term probability of being in any state $S_n$ is defined by $P_n$. If this is in steady state, then we can cut the chain at any point and balance the flows in each direction.
 <figure align="center">
-  <img src="assets/images/image-17.png" alt="Alt text" width="60%">
+  <img src="assets/images/PE-note-1/image-3.png" alt="Alt text" width="60%">
   <figcaption>The flow balance equations</figcaption>
 </figure>
 
@@ -129,7 +129,7 @@ $N = \sum_{i=0}^{n} i P_i = \frac{\rho + (\rho n - n - 1)\rho^{n+1}}{(1 - \rho^{
 ### Queueing result
 - A non-linear curve
 <figure align="center">
-  <img src="assets/images/image-18.png" alt="Alt text" width="100%">
+  <img src="assets/images/PE-note-1/image-4.png" alt="Alt text" width="100%">
   <figcaption>Queueing result</figcaption>
 </figure>
 
@@ -156,7 +156,7 @@ $ \text{efficiency} = \frac{\gamma}{\mu} = \rho (1 - P_B) $
 - So we can get: $ N = \lambda T = \lambda W + \lambda/\mu$
 
 <figure align="center">
-  <img src="assets/images/image-19.png" alt="Alt text" width="100%">
+  <img src="assets/images/PE-note-1/image-5.png" alt="Alt text" width="100%">
   <figcaption>T in the finite system</figcaption>
 </figure>
 

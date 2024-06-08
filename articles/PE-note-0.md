@@ -51,7 +51,7 @@ date: "2024-06-03T11:26:19"
 
 ## An example of misleading performance results
 <figure align="center">
-  <img src="assets/images/image-14.png" alt="Alt text" width="100%">
+  <img src="assets/images/PE-note-0/image1.png" alt="Alt text" width="100%">
   <figcaption>'wrt' means 'with respect to' here</figcaption>
 </figure>
 
