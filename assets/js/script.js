@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             setArticleTitle(articleData.title);
                         })
                         .catch(error => {
-                            contentElement.innerHTML = '<p>Failed to load article. Please try again later.</p>';
+                            contentElement.innerHTML = '<p>Failed to load article. Please refresh or try again later.</p>';
                             console.error('Error fetching the Markdown file:', error);
                         });
                 }
