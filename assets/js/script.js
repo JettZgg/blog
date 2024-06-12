@@ -2,27 +2,23 @@ window.MathJax = {
     tex: {
         inlineMath: [['$', '$'], ['\\(', '\\)']],
         displayMath: [['$$', '$$'], ['\\[', '\\]']]
-    },
-    startup: {
-        ready: () => {
-            MathJax.startup.defaultReady();
-            document.addEventListener('DOMContentLoaded', function() {
-                MathJax.typesetPromise().then(() => {
-                    console.log('MathJax initial typesetting complete');
-                }).catch((err) => console.log('MathJax initial typeset failed: ' + err.message));
-            });
-        }
     }
 };
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.MathJax) {
+        MathJax.typesetPromise();
+    }
+});
 
 // Ensure MathJax processes any LaTeX in the loaded content after Marked.js parsing
 function renderMathJax() {
     if (window.MathJax) {
-        MathJax.typesetPromise().catch((err) => console.log('MathJax typeset failed: ' + err.message));
+        MathJax.typesetPromise();
     }
 }
 
-// Set article title
+// Set article tile
 function setArticleTitle(title) {
     document.title = title;
 }
