@@ -23,5 +23,10 @@
         "title": "SQL Note 0 - Normal Form, Data Types, JOIN, LIKE, ORDER BY, Functions",
         "file": "SQL-note-0.md",
         "date": "2024-01-27T22:25:07"
+    },
+    {
+        "title": "About Me",
+        "file": "about-me.md",
+        "date": "2024-01-01T12:42:50"
     }
 ]
