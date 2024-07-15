@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: 'Noto Serif SC', serif;
     line-height: 1.6;
     margin: 20px;
     background-color: #fafad2;
@@ -74,6 +74,11 @@ nav ul li a:hover {
         display: block;
         margin-bottom: 10px;
     }
+}
+
+/* Force the font for markdown body */
+main.markdown-body {
+    font-family: 'Noto Serif SC', serif !important;
 }
 
 .markdown-body img {
