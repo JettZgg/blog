@@ -2,6 +2,7 @@
 title: Erlang's Theory
 date: "2024-02-26T15:15:47"
 ---
+# Erlang's Theory
 ## Erlang Queuing Models
 
 ### Erlang B Model

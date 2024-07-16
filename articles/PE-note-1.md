@@ -2,7 +2,7 @@
 title: Queueing Theory
 date: "2024-01-28T21:59:19"
 ---
-
+# Queueing Theory
 ## System Flow
 <figure align="center">
   <img src="assets/images/PE-note-1/image-1.png" alt="Alt text" width="100%">

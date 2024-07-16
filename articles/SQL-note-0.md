@@ -2,7 +2,7 @@
 title: SQL Note 0 - Normal Form, Data Types, JOIN, LIKE, ORDER BY, Functions
 date: "2024-01-27T22:25:07"
 ---
-
+# SQL Note 0 - Normal Form, Data Types, JOIN, LIKE, ORDER BY, Functions
 ## 3 Normal Forms
 1. A primary key is required for every table
 <figure align="center">
