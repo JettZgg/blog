@@ -11,11 +11,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     const themeToggle = document.getElementById('theme-toggle');
+    const sunIcon = document.getElementById('sun-icon');
+    const moonIcon = document.getElementById('moon-icon');
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme) {
         document.body.classList.add(currentTheme);
         if (currentTheme === 'dark-mode') {
-            themeToggle.textContent = '🌙';
+            sunIcon.style.display = 'none';
+            moonIcon.style.display = 'block';
+        } else {
+            sunIcon.style.display = 'block';
+            moonIcon.style.display = 'none';
         }
     }
 
@@ -66,14 +72,18 @@ function groupArticlesByDate(articles) {
 
 function toggleTheme() {
     const themeToggle = document.getElementById('theme-toggle');
+    const sunIcon = document.getElementById('sun-icon');
+    const moonIcon = document.getElementById('moon-icon');
     if (document.body.classList.contains('dark-mode')) {
         document.body.classList.remove('dark-mode');
         localStorage.setItem('theme', 'light-mode');
-        themeToggle.textContent = '☀️';
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
     } else {
         document.body.classList.add('dark-mode');
         localStorage.setItem('theme', 'dark-mode');
-        themeToggle.textContent = '🌙';
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
     }
 }
 

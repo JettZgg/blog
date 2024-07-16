@@ -10,7 +10,7 @@ body {
     line-height: 1.6;
     margin: 20px;
     background-color: #8399A8;
-    /* Light cyan background for light mode */
+    /* Light background for light mode */
     color: #333;
     /* Ensure text color is readable on the new background */
 }
@@ -34,7 +34,7 @@ main {
     width: 50%;
     text-align: left;
     background-color: #8399A8;
-    /* Light cyan background for main content */
+    /* Light background for main content */
     padding: 20px;
     border-radius: 8px;
 }
@@ -209,13 +209,37 @@ body.dark-mode .markdown-body {
 #theme-toggle {
     background: none;
     border: none;
-    font-size: 1.5em;
     cursor: pointer;
     position: absolute;
     top: 20px;
     left: 20px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
 }
 
-body.dark-mode #theme-toggle {
-    content: '🌙';
+#theme-toggle svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode #theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode #theme-toggle #moon-icon {
+    stroke: white;
 }
