@@ -5,25 +5,33 @@ window.MathJax = {
     }
 };
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     if (window.MathJax) {
         MathJax.typesetPromise();
     }
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+        document.body.classList.add(currentTheme);
+        if (currentTheme === 'dark-mode') {
+            themeToggle.textContent = '🌙';
+        }
+    }
+
+    themeToggle.addEventListener('click', toggleTheme);
 });
 
-// Ensure MathJax processes any LaTeX in the loaded content after Marked.js parsing
 function renderMathJax() {
     if (window.MathJax) {
         MathJax.typesetPromise();
     }
 }
 
-// Set article tile
 function setArticleTitle(title) {
     document.title = title;
 }
 
-// Function to parse the metadata from the markdown content
 function parseMetadata(content) {
     const metadata = {};
     const metadataRegex = /^---\n([\s\S]+?)\n---/;
@@ -43,7 +51,6 @@ function parseMetadata(content) {
     return metadata;
 }
 
-// Function to group articles by date
 function groupArticlesByDate(articles) {
     const groupedArticles = {};
     articles.forEach(article => {
@@ -57,14 +64,25 @@ function groupArticlesByDate(articles) {
     return groupedArticles;
 }
 
-// Load and parse Markdown file
-document.addEventListener('DOMContentLoaded', function() {
+function toggleTheme() {
+    const themeToggle = document.getElementById('theme-toggle');
+    if (document.body.classList.contains('dark-mode')) {
+        document.body.classList.remove('dark-mode');
+        localStorage.setItem('theme', 'light-mode');
+        themeToggle.textContent = '☀️';
+    } else {
+        document.body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark-mode');
+        themeToggle.textContent = '🌙';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
     const contentElement = document.getElementById('content');
     const articleListElement = document.getElementById('article-list');
     const urlParams = new URLSearchParams(window.location.search);
     const article = urlParams.get('article');
 
-    // Fetch the articles list from articles.json
     fetch('assets/json/articles.json')
         .then(response => {
             if (!response.ok) {
@@ -73,14 +91,10 @@ document.addEventListener('DOMContentLoaded', function() {
             return response.json();
         })
         .then(articles => {
-            // Sort articles by date in descending order
             articles.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-            // Group articles by date
             const groupedArticles = groupArticlesByDate(articles);
 
             if (articleListElement) {
-                // Display grouped article titles on the home page
                 for (const date in groupedArticles) {
                     const dateElement = document.createElement('h2');
                     dateElement.className = 'article-date';
@@ -97,7 +111,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             if (contentElement && article) {
-                // Find the article file in the articles list
                 const articleData = articles.find(a => a.file.replace('.md', '') === article);
 
                 if (articleData) {
@@ -110,9 +123,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         })
                         .then(text => {
                             const metadata = parseMetadata(text);
-                            contentElement.innerHTML = marked.parse(metadata.content); // Use metadata.content instead of raw text
-                            Prism.highlightAll(); // Apply Prism.js highlighting
-                            renderMathJax(); // Ensure MathJax processes the content
+                            contentElement.innerHTML = marked.parse(metadata.content);
+                            Prism.highlightAll();
+                            renderMathJax();
                             setArticleTitle(articleData.title);
                         })
                         .catch(error => {

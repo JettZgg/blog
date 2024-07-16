@@ -9,10 +9,17 @@ body {
     font-family: 'Noto Serif SC', serif;
     line-height: 1.6;
     margin: 20px;
-    background-color: #fafad2;
-    /* Beige background for eye protection */
+    background-color: #8399A8;
+    /* Light cyan background for light mode */
     color: #333;
     /* Ensure text color is readable on the new background */
+}
+
+body.dark-mode {
+    background-color: #121212;
+    /* Dark background for dark mode */
+    color: #f5f5f5;
+    /* Light text color for dark mode */
 }
 
 header,
@@ -26,10 +33,15 @@ main {
     margin: 0 auto;
     width: 50%;
     text-align: left;
-    background-color: #fafad2;
-    /* Light goldenrod yellow for main content */
+    background-color: #8399A8;
+    /* Light cyan background for main content */
     padding: 20px;
     border-radius: 8px;
+}
+
+body.dark-mode main {
+    background-color: #1e1e1e;
+    /* Dark background for main content in dark mode */
 }
 
 pre {
@@ -56,6 +68,11 @@ nav ul li a {
     /* Ensure the font size is consistent */
     font-weight: normal;
     /* Ensure the font weight is normal */
+}
+
+body.dark-mode nav ul li a {
+    color: #f5f5f5;
+    /* Light text color for links in dark mode */
 }
 
 nav ul li a:hover {
@@ -121,8 +138,17 @@ main.markdown-body {
     /* Set font weight to normal */
 }
 
+body.dark-mode #article-list a {
+    color: #f5f5f5;
+    /* Light text color for links in dark mode */
+}
+
 #article-list a:hover {
     color: black;
+}
+
+body.dark-mode #article-list a:hover {
+    color: #f5f5f5;
 }
 
 /* Markdown content should keep its original format */
@@ -141,6 +167,13 @@ main.markdown-body {
     margin-right: 10px;
     font-size: 1.3em;
     font-weight: bold;
+    color: #333;
+    /* Default text color for article dates */
+}
+
+body.dark-mode .article-date {
+    color: #f5f5f5;
+    /* Light text color for article dates in dark mode */
 }
 
 .article-title {
@@ -150,8 +183,39 @@ main.markdown-body {
     /* Ensure the font weight is normal */
     text-decoration: underline;
     color: black;
+    /* Default text color for article titles */
+}
+
+body.dark-mode .article-title {
+    color: #f5f5f5;
+    /* Light text color for article titles in dark mode */
 }
 
 .article-title:hover {
     color: black;
+}
+
+body.dark-mode .article-title:hover {
+    color: #f5f5f5;
+}
+
+/* Ensure markdown content text changes color in dark mode */
+body.dark-mode .markdown-body {
+    color: #f5f5f5;
+    /* Light text color for markdown content in dark mode */
+}
+
+/* Theme toggle button */
+#theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+body.dark-mode #theme-toggle {
+    content: '🌙';
 }
