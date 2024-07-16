@@ -9,7 +9,7 @@ body {
     font-family: 'Noto Serif SC', serif;
     line-height: 1.6;
     margin: 20px;
-    background-color: #8399A8;
+    background-color: #A3CCBE;
     /* Light background for light mode */
     color: #333;
     /* Ensure text color is readable on the new background */
@@ -33,7 +33,7 @@ main {
     margin: 0 auto;
     width: 50%;
     text-align: left;
-    background-color: #8399A8;
+    background-color: #A3CCBE;
     /* Light background for main content */
     padding: 20px;
     border-radius: 8px;
