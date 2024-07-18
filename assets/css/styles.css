@@ -203,7 +203,8 @@ body.dark-mode .markdown-body {
     transition: all 0.3s ease;
 }
 
-@media (hover: hover) {
+/* Only apply hover effects on devices that support hover */
+@media (hover: hover) and (pointer: fine) {
     #theme-toggle:hover {
         background-color: rgba(0, 0, 0, 0.1);
     }
