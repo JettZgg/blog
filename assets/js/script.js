@@ -37,6 +37,29 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    function parseMetadata(content) {
+        const metadata = {};
+        const metadataRegex = /^---\n([\s\S]+?)\n---/;
+        const match = content.match(metadataRegex);
+
+        if (match) {
+            const metadataContent = match[1].trim().split('\n');
+            metadataContent.forEach(line => {
+                const [key, value] = line.split(':').map(item => item.trim());
+                metadata[key.toLowerCase()] = value.replace(/["']/g, ''); // Remove quotes if any
+            });
+            metadata.content = content.replace(metadataRegex, '').trim();
+        } else {
+            metadata.content = content;
+        }
+
+        return metadata;
+    }
+
+    function setArticleTitle(title) {
+        document.title = title;
+    }
+
     const contentElement = document.getElementById('content');
     const articleListElement = document.getElementById('article-list');
     const urlParams = new URLSearchParams(window.location.search);
