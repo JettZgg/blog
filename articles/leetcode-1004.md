@@ -26,9 +26,9 @@ Example 2:
 
 **Constraints:**
 
-- `1 <= nums.length <= 10<sup>5</sup>`
+- 1 <= nums.length <= 10<sup>5</sup>
 - `nums[i]` is either `0` or `1`.
-- `0 <= k <= nums.length`
+- 0 <= k <= nums.length
 
 ## Solution 
 ```cpp
