@@ -6,92 +6,78 @@ window.MathJax = {
 };
 
 document.addEventListener('DOMContentLoaded', function () {
-    if (window.MathJax) {
-        MathJax.typesetPromise();
+    // Function to set the theme based on localStorage value
+    function setTheme(theme) {
+        document.body.classList.toggle('dark-mode', theme === 'dark-mode');
+        sunIcon.style.display = theme === 'dark-mode' ? 'none' : 'block';
+        moonIcon.style.display = theme === 'dark-mode' ? 'block' : 'none';
     }
 
     const themeToggle = document.getElementById('theme-toggle');
     const sunIcon = document.getElementById('sun-icon');
     const moonIcon = document.getElementById('moon-icon');
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme) {
-        document.body.classList.add(currentTheme);
-        if (currentTheme === 'dark-mode') {
-            sunIcon.style.display = 'none';
-            moonIcon.style.display = 'block';
-        } else {
-            sunIcon.style.display = 'block';
-            moonIcon.style.display = 'none';
-        }
-    }
+    const currentTheme = localStorage.getItem('theme') || 'light-mode';
 
-    themeToggle.addEventListener('click', toggleTheme);
-});
+    // Apply the current theme from localStorage
+    setTheme(currentTheme);
 
-function renderMathJax() {
-    if (window.MathJax) {
-        MathJax.typesetPromise();
-    }
-}
-
-function setArticleTitle(title) {
-    document.title = title;
-}
-
-function parseMetadata(content) {
-    const metadata = {};
-    const metadataRegex = /^---\n([\s\S]+?)\n---/;
-    const match = content.match(metadataRegex);
-
-    if (match) {
-        const metadataContent = match[1].trim().split('\n');
-        metadataContent.forEach(line => {
-            const [key, value] = line.split(':').map(item => item.trim());
-            metadata[key.toLowerCase()] = value.replace(/["']/g, ''); // Remove quotes if any
-        });
-        metadata.content = content.replace(metadataRegex, '').trim();
-    } else {
-        metadata.content = content;
-    }
-
-    return metadata;
-}
-
-function groupArticlesByDate(articles) {
-    const groupedArticles = {};
-    articles.forEach(article => {
-        const date = new Date(article.date);
-        const formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
-        if (!groupedArticles[formattedDate]) {
-            groupedArticles[formattedDate] = [];
-        }
-        groupedArticles[formattedDate].push(article);
+    themeToggle.addEventListener('click', function () {
+        const newTheme = document.body.classList.contains('dark-mode') ? 'light-mode' : 'dark-mode';
+        localStorage.setItem('theme', newTheme);
+        setTheme(newTheme);
     });
-    return groupedArticles;
-}
 
-function toggleTheme() {
-    const themeToggle = document.getElementById('theme-toggle');
-    const sunIcon = document.getElementById('sun-icon');
-    const moonIcon = document.getElementById('moon-icon');
-    if (document.body.classList.contains('dark-mode')) {
-        document.body.classList.remove('dark-mode');
-        localStorage.setItem('theme', 'light-mode');
-        sunIcon.style.display = 'block';
-        moonIcon.style.display = 'none';
-    } else {
-        document.body.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark-mode');
-        sunIcon.style.display = 'none';
-        moonIcon.style.display = 'block';
+    function renderMathJax() {
+        if (window.MathJax) {
+            if (window.MathJax.typesetPromise) {
+                MathJax.typesetPromise();
+            } else if (window.MathJax.Hub && window.MathJax.Hub.Queue) {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            }
+        }
     }
-}
 
-document.addEventListener('DOMContentLoaded', function () {
+    function parseMetadata(content) {
+        const metadata = {};
+        const metadataRegex = /^---\n([\s\S]+?)\n---/;
+        const match = content.match(metadataRegex);
+
+        if (match) {
+            const metadataContent = match[1].trim().split('\n');
+            metadataContent.forEach(line => {
+                const [key, value] = line.split(':').map(item => item.trim());
+                metadata[key.toLowerCase()] = value.replace(/["']/g, ''); // Remove quotes if any
+            });
+            metadata.content = content.replace(metadataRegex, '').trim();
+        } else {
+            metadata.content = content;
+        }
+
+        return metadata;
+    }
+
+    function setArticleTitle(title) {
+        document.title = title;
+    }
+
     const contentElement = document.getElementById('content');
     const articleListElement = document.getElementById('article-list');
     const urlParams = new URLSearchParams(window.location.search);
     const article = urlParams.get('article');
+
+    // Define the groupArticlesByDate function
+    function groupArticlesByDate(articles) {
+        const groupedArticles = {};
+        articles.forEach(article => {
+            const date = new Date(article.date);
+            const formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+            if (!groupedArticles[formattedDate]) {
+                groupedArticles[formattedDate] = [];
+            }
+            groupedArticles[formattedDate].push(article);
+        });
+        return groupedArticles;
+    }
 
     fetch('assets/json/articles.json')
         .then(response => {
