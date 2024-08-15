@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const themeToggle = document.getElementById('theme-toggle');
     const sunIcon = document.getElementById('sun-icon');
     const moonIcon = document.getElementById('moon-icon');
-    const currentTheme = localStorage.getItem('theme') || 'light-mode';
+    const currentTheme = localStorage.getItem('theme') || 'dark-mode';
 
     // Apply the current theme from localStorage
     setTheme(currentTheme);
