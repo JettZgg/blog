@@ -41,7 +41,7 @@ date: "{current_time}"
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: python new_article.py <article-title>")
+        print("Usage: python new.py <article-title>")
     else:
         article_title = sys.argv[1]
         create_new_article(article_title)
