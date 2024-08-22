@@ -10,6 +10,11 @@ body {
     margin: 20px;
     background-color: #A3CCBE;
     color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.theme-transition {
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body.dark-mode {

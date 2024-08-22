@@ -8,9 +8,16 @@ window.MathJax = {
 document.addEventListener('DOMContentLoaded', function () {
     // Function to set the theme based on localStorage value
     function setTheme(theme) {
-        document.body.classList.toggle('dark-mode', theme === 'dark-mode');
+        document.body.classList.remove('light-mode', 'dark-mode');
+        document.body.classList.add(theme);
+        document.body.classList.add('theme-transition');
         sunIcon.style.display = theme === 'dark-mode' ? 'none' : 'block';
         moonIcon.style.display = theme === 'dark-mode' ? 'block' : 'none';
+        
+        // Remove the transition class after the transition is complete
+        setTimeout(() => {
+            document.body.classList.remove('theme-transition');
+        }, 300); // Adjust this value to match your CSS transition duration
     }
 
     const themeToggle = document.getElementById('theme-toggle');
