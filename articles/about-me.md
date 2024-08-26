@@ -2,8 +2,13 @@
 title: "About Me"
 date: "2024-01-01T12:42:50"
 ---
-
 # About Me
+
+<figure align="center">
+  <img src="assets/images/aboutme/image.png" alt="Alt text" width="100%">
+  <figcaption>Exploring the world of technology and beyond</figcaption>
+</figure>
+
 - My name is Jett
 - Email: jett.z@outlook.com
 - I like geek things
