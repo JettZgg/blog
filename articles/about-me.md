@@ -3,9 +3,8 @@ title: "About Me"
 date: "2024-01-01T12:42:50"
 ---
 # About Me
-
 <figure align="center">
-  <img src="assets/images/aboutme/image.png" alt="Alt text" width="100%">
+  <img src="assets/images/aboutme/image.png" alt="Alt text" width="50%">
   <figcaption>Exploring the world of technology and beyond</figcaption>
 </figure>
 

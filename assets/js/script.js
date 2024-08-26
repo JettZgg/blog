@@ -126,7 +126,12 @@ document.addEventListener('DOMContentLoaded', function () {
                         })
                         .then(text => {
                             const metadata = parseMetadata(text);
-                            contentElement.innerHTML = marked.parse(metadata.content);
+                            contentElement.innerHTML = marked.parse(metadata.content, {
+                                breaks: true,
+                                gfm: true,
+                                sanitize: false,
+                                renderer: new marked.Renderer()
+                            });
                             Prism.highlightAll();
                             renderMathJax();
                             setArticleTitle(articleData.title);
