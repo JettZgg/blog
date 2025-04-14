@@ -72,6 +72,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
     const article = urlParams.get('article');
 
+    // Check if running on GitHub Pages or locally
+    const isGitHubPages = window.location.hostname.includes('github.io');
+    const baseArticlePath = isGitHubPages
+        ? 'https://raw.githubusercontent.com/JettZgg/blog/master/articles/'
+        : 'articles/';
+
     // Define the groupArticlesByDate function
     function groupArticlesByDate(articles) {
         const groupedArticles = {};
@@ -94,8 +100,13 @@ document.addEventListener('DOMContentLoaded', function () {
             return response.json();
         })
         .then(articles => {
-            articles.sort((a, b) => new Date(b.date) - new Date(a.date));
-            const groupedArticles = groupArticlesByDate(articles);
+            // Filter out about-me and projects from article list display
+            const filteredArticles = articles.filter(article =>
+                article.file !== 'about-me.md' && article.file !== 'projects.md'
+            );
+
+            filteredArticles.sort((a, b) => new Date(b.date) - new Date(a.date));
+            const groupedArticles = groupArticlesByDate(filteredArticles);
 
             if (articleListElement) {
                 for (const date in groupedArticles) {
@@ -117,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const articleData = articles.find(a => a.file.replace('.md', '') === article);
 
                 if (articleData) {
-                    fetch(`https://raw.githubusercontent.com/JettZgg/blog/master/articles/${articleData.file}`)
+                    fetch(`${baseArticlePath}${articleData.file}`)
                         .then(response => {
                             if (!response.ok) {
                                 throw new Error('Network response was not ok');

@@ -101,6 +101,7 @@ date: "2025-01-11T19:48:42"
 ## Network
 - **ifconfig**: display network interface information
 - **ping**: test network connectivity
+- **lsof -i**: disply port usage
 - **netstat**: display network statistics
     - -t: TCP
     - -u: UDP
