@@ -81,3 +81,134 @@ date: "2025-04-19T16:46:45"
     5.  Return the `values()` of the dictionary as a list.
     6.  Result: O(N * K log K) time (N words, max length K, due to sorting).
 
+### 6. Majority Element
+
+* **Problem:** Given an array `nums` of size `n`, find the element that appears more than `⌊ n / 2 ⌋` times. (Assume one always exists).
+* **Optimal Approach:** Use a Dictionary (HashMap) for counting OR Boyer-Moore Voting Algorithm. (HashMap focus).
+* **Thought Process:**
+    1.  Need counts of each number.
+    2.  Use **Dictionary** `{number: count}`.
+    3.  Iterate `nums`, increment counts (`counts[num] = counts.get(num, 0) + 1`).
+    4.  Iterate `counts`, find the number where count > `len(nums) // 2`.
+    5.  Result (HashMap): O(n) time, O(n) space. *(Boyer-Moore is O(n) time, O(1) space)*.
+
+### 7. Ransom Note
+
+* **Problem:** Given strings `ransomNote` and `magazine`, return `True` if `ransomNote` can be constructed using letters from `magazine` exactly once per required letter.
+* **Optimal Approach:** Use a Dictionary (HashMap/Counter) for frequency counts.
+* **Thought Process:**
+    1.  Need counts of available characters in `magazine`.
+    2.  Use **Dictionary** `mag_counts = {char: count}` for `magazine`.
+    3.  Iterate through `ransomNote`. For each `char`:
+        * Check if `char` is in `mag_counts` and `mag_counts[char] > 0`.
+        * If yes, decrement `mag_counts[char] -= 1`.
+        * If no, return `False`.
+    4.  If loop finishes, return `True`.
+    5.  Result: O(m + n) time, O(k) space (k=alphabet size).
+
+### 8. Longest Consecutive Sequence
+
+* **Problem:** Given unsorted `nums`, find the length of the longest sequence of consecutive elements (e.g., `[1, 2, 3, 4]`).
+* **Optimal Approach:** Use a Set for fast lookups.
+* **Thought Process:**
+    1.  Sorting works (O(n log n)), but aiming for O(n).
+    2.  Need fast check if `num + 1` exists. Use a **Set**.
+    3.  Algorithm:
+        * Add all `nums` to `num_set`.
+        * Iterate through `nums`.
+        * **Optimization:** If `num - 1` is NOT in `num_set` (it's a sequence start):
+            * Count length by checking for `num + 1`, `num + 2`, ... in `num_set`.
+            * Update max length found.
+    4.  Result: O(n) time, O(n) space (for the set).
+
+### 9. Is Subsequence
+
+* **Problem:** Given strings `s` and `t`, return `True` if `s` can be formed by deleting chars from `t` without changing relative order.
+* **Optimal Approach:** Two Pointers (or pointer-like iteration).
+* **Thought Process:**
+    1.  Need to find chars of `s` within `t` *in order*.
+    2.  Use pointer `i` for `s`, `j` for `t`.
+    3.  While `i < len(s)` and `j < len(t)`:
+        * If `s[i] == t[j]`, found current char, so increment `i`.
+        * Always increment `j` to check next char in `t`.
+    4.  If `i == len(s)` after loop, all chars were found in order. Return `True`. Else `False`.
+    5.  Result: O(len(t)) time, O(1) space. Uses **String** access.
+
+### 10. Find All Numbers Disappeared in an Array
+
+* **Problem:** Given `nums` with numbers `[1..n]`, find all numbers in `[1..n]` not present in `nums`.
+* **Optimal Approach:** Use a Set OR in-place modification.
+* **Thought Process (Set):**
+    1.  Need to know which numbers `1..n` are present. Use a **Set**.
+    2.  Algorithm:
+        * Create `seen_set` from `nums`.
+        * Initialize `result` list.
+        * Loop `i` from `1` to `n`. If `i` not in `seen_set`, add `i` to `result`.
+        * Return `result`.
+    3.  Result: O(n) time, O(n) space.
+* **Thought Process (In-place - Alt):**
+    1.  Use array indices to mark presence. Iterate `nums`, for `val = abs(nums[i])`, make `nums[val - 1]` negative.
+    2.  Iterate `1..n`. If `nums[i-1]` is positive, `i` was missing. Add `i` to result.
+    3.  Result: O(n) time, O(1) space (modifies input). Uses clever **Array/List** index manipulation.
+
+---
+
+## Key Thinking Patterns & Knowledge Points for Day 1:
+
+1.  **Data Structure Selection:** Know *when* to use List, Dict, Set, String, Tuple based on order, mutability, uniqueness, lookups, key-value needs.
+2.  **Leveraging O(1) Operations:** Use HashMaps/Sets for fast lookups/membership checks to optimize beyond O(n²) or O(n log n).
+3.  **Frequency Counting:** Use HashMaps/Dicts (or `Counter`) for counting item occurrences.
+4.  **Handling Duplicates/Uniqueness:** Use Sets for tracking unique items or checking presence/absence quickly.
+5.  **Using Signatures/Canonical Forms:** Represent structurally equivalent items (like anagrams) uniquely (e.g., sorted string) to use as HashMap keys for grouping.
+6.  **Pointer Techniques (Basic):** Use indices/pointers (conceptually) to iterate and compare within sequences (Lists/Strings).
+7.  **Time/Space Trade-offs:** Understand that faster time (e.g., O(n) via HashMap/Set) often costs extra space (O(n)), while O(1) space solutions might be slower or require in-place modification.
+8.  **Read the Problem Carefully:** Pay attention to constraints, input/output specs, and edge cases.
+
+---
+
+## Native Implementation Templates (No Imports):
+
+### Native Counter Implementation:
+
+* Mimics `collections.Counter` using a standard dictionary.
+
+```python
+def native_counter(iterable):
+    """Counts item frequency using a native dict."""
+    counts = {} 
+    for item in iterable:
+        counts[item] = counts.get(item, 0) + 1
+    return counts
+
+# Example: native_counter("aabbc") -> {'a': 2, 'b': 2, 'c': 1}
+```
+
+### Native defaultdict(list) Implementation (for Grouping):
+
+* Mimics `collections.defaultdict(list)` behavior for grouping items, using `dict.setdefault`.
+```python
+def group_items_native_setdefault(items_with_keys):
+    """Groups items using a native dict and setdefault.
+    Assumes items_with_keys is an iterable yielding (key, value) pairs 
+    or similar structure where key can be derived.
+    """
+    groups = {} # Use a standard dictionary
+    
+    # Example loop structure (adapt as needed)
+    # for key, value in items_with_keys: 
+    #    groups.setdefault(key, []).append(value)
+
+    # Example for Group Anagrams logic:
+    strs = ["eat", "tea", "tan", "ate", "nat", "bat"] 
+    for word in strs:
+        key = "".join(sorted(word))
+        # setdefault ensures the key maps to a list, then appends.
+        groups.setdefault(key, []).append(word) 
+
+    return groups # Or list(groups.values()) depending on desired output
+
+# Example call (using the anagram logic inside):
+# anagram_groups = group_items_native_setdefault(None) # Pass actual data if needed
+# print(list(anagram_groups.values())) 
+# -> [['eat', 'tea', 'ate'], ['tan', 'nat'], ['bat']]
+```
