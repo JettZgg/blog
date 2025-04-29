@@ -3,7 +3,7 @@ title: "leetcode-grinding-day6"
 date: "2025-04-29T15:14:13"
 ---
 
-# Day 6 Summary: Heaps (Priority Queues) & Intro to Graphs
+# Day 6: Heaps (Priority Queues) & Intro to Graphs
 
 ## Core Concepts:
 
@@ -31,9 +31,8 @@ date: "2025-04-29T15:14:13"
     * **Depth-First Search (DFS):** Explores as deep as possible along a path before backtracking. Uses **Recursion** (implicit stack) or an **explicit Stack**. Used for path finding, cycle detection, connectivity.
 * **Complexity (BFS/DFS):** Time: O(V + E), Space: O(V + E) (for adjacency list, visited set, queue/stack).
 
----
 
-## Classic Problems & Optimal Approaches (Examples 1-10):
+## Classic Problems & Optimal Approaches:
 
 ### 1. Kth Largest Element in an Array (LeetCode #215 - Medium)
 
@@ -105,7 +104,6 @@ date: "2025-04-29T15:14:13"
 * **Thought Process (DFS):** Build graph (prereq -> course). Use `visited` array with 3 states (0=unvisited, 1=visiting, 2=visited). Start DFS from unvisited nodes. Mark node as 1 (visiting). Recurse on neighbors. If neighbor is state 1, cycle detected. If neighbor is state 0, recurse. If recursion finds cycle, propagate True. After visiting all neighbors, mark node as 2 (visited). If no cycle found starting from any node, return True.
 * **Complexity:** Time: O(V + E), Space: O(V + E).
 
----
 
 ## Core Techniques Summary (Day 6):
 

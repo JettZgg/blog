@@ -3,7 +3,7 @@ title: "leetcode-grinding-day3"
 date: "2025-04-26T20:30:04"
 ---
 
-# Day 3 Summary: Two Pointers & Sliding Window
+# Day 3: Two Pointers & Sliding Window
 
 ## Core Concepts:
 
@@ -23,9 +23,8 @@ date: "2025-04-26T20:30:04"
 * **Data Structures:** Often used with **HashMaps** (for character counts) or **Sets** (for uniqueness checks) to efficiently track the state within the current window.
 * **Complexity:** Typically O(n) time as each element is processed by `left` and `right` pointers a limited number of times.
 
----
 
-## Classic Problems & Optimal Approaches (Examples 1-10):
+## Classic Problems & Optimal Approaches:
 
 ### 1. Two Sum II - Input Array Is Sorted (LeetCode #167 - Medium)
 
@@ -97,7 +96,6 @@ date: "2025-04-26T20:30:04"
 * **Thought Process:** Window size = `len(s1)`. Calculate `s1`'s char counts. Maintain char counts for the current window in `s2`. Slide the window one char at a time: add new char count, remove old char count. Compare window counts with `s1` counts at each step. If they match, return `True`.
 * **Complexity:** Time: O(len(s2)), Space: O(k) (k = charset size).
 
----
 
 ## Core Techniques for Day 3 Problems:
 
@@ -107,7 +105,6 @@ date: "2025-04-26T20:30:04"
 4.  **In-Place Modification:** Understand how to use read/write pointers (like `slow`/`fast`) to modify an array/list directly according to problem requirements (e.g., `Move Zeroes`, `Remove Duplicates`).
 5.  **Complexity Goal:** Aim for O(n) time complexity by avoiding nested loops through clever pointer manipulation. Be mindful of space complexity (O(1) for most pointer techniques, O(k) or O(n) sometimes needed for window state).
 
----
 
 ## Practical Approach Reminder:
 

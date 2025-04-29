@@ -3,7 +3,7 @@ title: "leetcode-grinding-day7"
 date: "2025-04-29T22:31:09"
 ---
 
-# Day 7 Summary: Introduction to Dynamic Programming (DP)
+# Day 7: Introduction to Dynamic Programming (DP)
 
 ## Core Concepts:
 
@@ -30,9 +30,8 @@ date: "2025-04-29T22:31:09"
     5.  Choose Implementation (Memoization or Tabulation).
     6.  Determine Iteration Order (for Tabulation).
 
----
 
-## Classic Problems & Optimal Approaches
+## Classic Problems & Optimal Approaches:
 
 ### 1. Fibonacci Number (LeetCode #509 - Easy)
 
@@ -104,7 +103,6 @@ date: "2025-04-29T22:31:09"
 * **Thought Process:** State `dp[i]` = boolean, if prefix `s[0...i-1]` can be segmented. Recurrence: `dp[i]` is `True` if there exists `j < i` such that `dp[j]` is `True` AND the substring `s[j...i-1]` is in `wordDict` (use a Set for fast lookup). Base case `dp[0] = True`.
 * **Complexity:** Time: O(n^3) (due to substring slicing inside loops) or O(n^2) with optimizations. Space: O(n) + O(DictSize).
 
----
 
 ## Core Techniques Summary (Day 7 - DP Intro):
 

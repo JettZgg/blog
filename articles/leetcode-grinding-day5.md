@@ -3,7 +3,7 @@ title: "leetcode-grinding-day5"
 date: "2025-04-28T19:29:32"
 ---
 
-# Day 5 Summary: Trees (BFS & DFS)
+# Day 5: Trees (BFS & DFS)
 
 ## Core Concepts:
 
@@ -36,9 +36,8 @@ date: "2025-04-28T19:29:32"
     * **Use Cases:** Path finding, checking tree properties (depth, validity), many recursive problems.
     * **Space:** O(H), where H = height of the tree (recursion stack or explicit stack, can be O(N) in skewed trees, O(log N) in balanced trees).
 
----
 
-## Classic Problems & Optimal Approaches (Examples 1-10):
+## Classic Problems & Optimal Approaches:
 
 ### 1. Maximum Depth of Binary Tree (LeetCode #104 - Easy)
 
@@ -113,7 +112,6 @@ date: "2025-04-28T19:29:32"
 * **Thought Process:** Define `isSameTree(p, q)` (from #100). Main function `isSubtree(root, subRoot)`: If `root` is `None`, return `False` (unless `subRoot` is also `None`). Check if `isSameTree(root, subRoot)`. If yes, return `True`. If not, recursively check `isSubtree(root.left, subRoot)` OR `isSubtree(root.right, subRoot)`.
 * **Complexity:** Time: O(N * M) (N = nodes in root, M = nodes in subRoot) in worst case for basic recursion. Space: O(H_root).
 
----
 
 ## Core Techniques Summary (Day 5):
 

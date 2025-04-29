@@ -3,7 +3,7 @@ title: "Leetcode-Grinding-Day1"
 date: "2025-04-19T16:46:45"
 ---
 
-# Day 1 Summary: Foundations
+# Day 1: Foundations
 
 ## Key Data Structures Learned:
 
@@ -151,7 +151,6 @@ date: "2025-04-19T16:46:45"
     2.  Iterate `1..n`. If `nums[i-1]` is positive, `i` was missing. Add `i` to result.
     3.  Result: O(n) time, O(1) space (modifies input). Uses clever **Array/List** index manipulation.
 
----
 
 ## Key Thinking Patterns & Knowledge Points for Day 1:
 
@@ -164,7 +163,6 @@ date: "2025-04-19T16:46:45"
 7.  **Time/Space Trade-offs:** Understand that faster time (e.g., O(n) via HashMap/Set) often costs extra space (O(n)), while O(1) space solutions might be slower or require in-place modification.
 8.  **Read the Problem Carefully:** Pay attention to constraints, input/output specs, and edge cases.
 
----
 
 ## Native Implementation Templates (No Imports):
 

@@ -55,37 +55,37 @@
         "date": "2025-04-19T15:08:43"
     },
     {
-        "title": "Leetcode Grinding Day1",
+        "title": "Leetcode Day1: Foundations",
         "file": "leetcode-grinding-day1.md",
         "date": "2025-04-19T16:46:45"
     },
     {
-        "title": "Leetcode Grinding Day2",
+        "title": "Leetcode Day2: Sorting & Searching",
         "file": "leetcode-grinding-day2.md",
         "date": "2025-04-20T20:45:29"
     },
     {
-        "title": "Leetcode Grinding Day3",
+        "title": "Leetcode Day3: Two Pointers & Sliding Window",
         "file": "leetcode-grinding-day3.md",
         "date": "2025-04-26T20:30:04"
     },
     {
-        "title": "Leetcode Grinding Day4",
+        "title": "Leetcode Day4: Linked Lists",
         "file": "leetcode-grinding-day4.md",
         "date": "2025-04-28T19:29:02"
     },
     {
-        "title": "Leetcode Grinding Day5",
+        "title": "Leetcode Day5: Trees (BFS & DFS)",
         "file": "leetcode-grinding-day5.md",
         "date": "2025-04-28T19:29:32"
     },
     {
-        "title": "Leetcode Grinding Day6",
+        "title": "Leetcode Day6: Heaps (Priority Queues) & Intro to Graphs",
         "file": "leetcode-grinding-day6.md",
         "date": "2025-04-29T15:14:13"
     },
     {
-        "title": "Leetcode Grinding Day7",
+        "title": "Leetcode Day7: Dynamic Programming",
         "file": "leetcode-grinding-day7.md",
         "date": "2025-04-29T22:31:09"
     }

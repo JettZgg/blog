@@ -2,7 +2,7 @@
 title: "leetcode-grinding-day4"
 date: "2025-04-28T19:29:02"
 ---
-# Day 4 Summary: Linked Lists
+# Day 4: Linked Lists
 
 ## Core Concepts:
 
@@ -12,9 +12,8 @@ date: "2025-04-28T19:29:02"
 * **vs. Array:** Linked lists allow efficient O(1) time insertion/deletion *if* you have a reference to the node/previous node, but accessing the k-th element takes O(k) time. Arrays offer O(1) access by index but O(n) insertion/deletion in the general case due to element shifting. Nodes can be non-contiguous in memory.
 * **Dummy Node (Sentinel):** An auxiliary node placed *before* the actual head (`dummy = ListNode(0, head)`). This simplifies code, especially for operations that might modify the head node (like deletion or insertion at the beginning), as the head can then be treated like any other node relative to the dummy node. The actual result list starts at `dummy.next`.
 
----
 
-## Classic Problems & Optimal Approaches (Examples 1-10):
+## Classic Problems & Optimal Approaches:
 
 ### 1. Reverse Linked List (LeetCode #206 - Easy)
 
@@ -86,7 +85,6 @@ date: "2025-04-28T19:29:02"
 * **Thought Process:** 1. Find the middle node using fast/slow pointers. 2. Split the list into two halves (set `middle.next = None`). 3. Reverse the second half. 4. Merge the first half and the reversed second half by alternating nodes: link first node of second list after first node of first list, link second node of first list after first node of second list, and so on.
 * **Complexity:** Time: O(n), Space: O(1).
 
----
 
 ## Core Techniques Summary (Day 4):
 

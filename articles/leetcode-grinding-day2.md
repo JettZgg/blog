@@ -3,7 +3,7 @@ title: "Leetcode-Grinding-Day2"
 date: "2025-04-20T20:45:29"
 ---
 
-# Day 2 Summary: Sorting & Searching
+# Day 2: Sorting & Searching
 
 ## Core Concepts:
 
@@ -27,7 +27,6 @@ date: "2025-04-20T20:45:29"
     * **Complexity:** Very fast - O(log n) time. O(1) space.
     * **Variations:** Used not just for exact matches, but finding boundaries (first/last occurrence), searching in rotated arrays, or searching on the "answer space" where a condition shows monotonicity.
 
----
 
 ## Classic Problems & Optimal Approaches:
 
@@ -116,7 +115,6 @@ date: "2025-04-20T20:45:29"
     * If right half is sorted (`nums[left] > nums[mid]`): Check if `target` is within the range `(nums[mid], nums[right]]`. If yes, search right (`left = mid + 1`). Else, search left (`right = mid - 1`).
 * **Complexity:** Time: O(log n), Space: O(1).
 
----
 
 ## Core Techniques for Day 2 Problems:
 
@@ -127,7 +125,6 @@ date: "2025-04-20T20:45:29"
 5.  **Problem Transformation:** Adapt problems to fit search algorithms (e.g., 2D matrix to 1D view).
 6.  **Binary Search on Answer Space:** Apply binary search not just on data indices, but on the range of possible *answers* when a condition exhibits monotonicity.
 
----
 
 ## `while (left < right)` vs `while (left <= right)` in Binary Search:
 
