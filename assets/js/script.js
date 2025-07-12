@@ -6,34 +6,6 @@ window.MathJax = {
 };
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Function to set the theme based on localStorage value
-    function setTheme(theme) {
-        document.body.classList.remove('light-mode', 'dark-mode');
-        document.body.classList.add(theme);
-        document.body.classList.add('theme-transition');
-        sunIcon.style.display = theme === 'dark-mode' ? 'none' : 'block';
-        moonIcon.style.display = theme === 'dark-mode' ? 'block' : 'none';
-
-        // Remove the transition class after the transition is complete
-        setTimeout(() => {
-            document.body.classList.remove('theme-transition');
-        }, 300); // Adjust this value to match your CSS transition duration
-    }
-
-    const themeToggle = document.getElementById('theme-toggle');
-    const sunIcon = document.getElementById('sun-icon');
-    const moonIcon = document.getElementById('moon-icon');
-    const currentTheme = localStorage.getItem('theme') || 'dark-mode';
-
-    // Apply the current theme from localStorage
-    setTheme(currentTheme);
-
-    themeToggle.addEventListener('click', function () {
-        const newTheme = document.body.classList.contains('dark-mode') ? 'light-mode' : 'dark-mode';
-        localStorage.setItem('theme', newTheme);
-        setTheme(newTheme);
-    });
-
     function renderMathJax() {
         if (window.MathJax) {
             if (window.MathJax.typesetPromise) {
@@ -136,13 +108,23 @@ document.addEventListener('DOMContentLoaded', function () {
                             return response.text();
                         })
                         .then(text => {
-                            const metadata = parseMetadata(text);
-                            contentElement.innerHTML = marked.parse(metadata.content, {
+                            let metadata = parseMetadata(text);
+                            // Remove any leading lines that look like 'title:' or 'date:'
+                            let filteredContent = metadata.content
+                                .split('\n')
+                                .filter(line => !/^\s*(title|date)\s*:/i.test(line))
+                                .join('\n');
+                            contentElement.innerHTML = marked.parse(filteredContent, {
                                 breaks: true,
                                 gfm: true,
                                 sanitize: false,
                                 renderer: new marked.Renderer()
                             });
+                            // Remove leading <hr> if present
+                            const firstChild = contentElement.firstElementChild;
+                            if (firstChild && firstChild.tagName === 'HR') {
+                                contentElement.removeChild(firstChild);
+                            }
                             Prism.highlightAll();
                             renderMathJax();
                             setArticleTitle(articleData.title);
