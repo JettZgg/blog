@@ -120,10 +120,9 @@ document.addEventListener('DOMContentLoaded', function () {
                                 sanitize: false,
                                 renderer: new marked.Renderer()
                             });
-                            // Remove leading <hr> if present
-                            const firstChild = contentElement.firstElementChild;
-                            if (firstChild && firstChild.tagName === 'HR') {
-                                contentElement.removeChild(firstChild);
+                            // Remove all leading <hr> if present
+                            while (contentElement.firstElementChild && contentElement.firstElementChild.tagName === 'HR') {
+                                contentElement.removeChild(contentElement.firstElementChild);
                             }
                             Prism.highlightAll();
                             renderMathJax();
