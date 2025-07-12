@@ -119,7 +119,7 @@ nav {
     background: linear-gradient(to bottom, #E0E0E0 0%, #C0C0C0 100%);
     border: 2px solid #000000;
     border-radius: 0;
-    margin: 20px auto;
+    margin: 10px auto;
     max-width: 800px;
     padding: 10px;
 }
@@ -239,7 +239,15 @@ footer {
     /* 90% of 16px */
 }
 
-.markdown-body h1,
+.markdown-body h1 {
+    color: #0066CC;
+    border-bottom: 2px solid #C0C0C0;
+    padding-bottom: 5px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.7em !important;
+}
+
 .markdown-body h2,
 .markdown-body h3 {
     color: #0066CC;
